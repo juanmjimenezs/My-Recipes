@@ -92,7 +92,11 @@ class ViewController: UITableViewController {
         cell.timeLabel.text = "\(recipe.time!) min"
         cell.ingredientsLabel.text = "Ingredients: \(recipe.ingredients.count)"
         
+//        cell.thumbnailimageView.layer.cornerRadius = 42.0
+//        cell.thumbnailimageView.clipsToBounds = true
+        
         return cell
     }
 }
-
+/*
+*/
