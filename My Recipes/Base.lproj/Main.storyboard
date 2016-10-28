@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -10,18 +12,59 @@
         <scene sceneID="e91-nQ-5El">
             <objects>
                 <tableViewController id="vv7-Wh-oge" customClass="ViewController" customModule="My_Recipes" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="980-GH-Pg4">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="980-GH-Pg4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" id="6U5-nJ-63S">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" id="6U5-nJ-63S" customClass="RecipeCell" customModule="My_Recipes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6U5-nJ-63S" id="gno-r2-kzc">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pwe-cI-FjL">
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="pwe-cI-FjL" secondAttribute="height" multiplier="1:1" id="f0p-xx-ZLR"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="AOn-e6-OmN">
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ndJ-44-Q8h">
+                                                    <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaT-8y-XBY">
+                                                    <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mU0-aC-6lF">
+                                                    <fontDescription key="fontDescription" name="PingFangHK-Light" family="PingFang HK" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="AOn-e6-OmN" secondAttribute="trailing" constant="25" id="0qY-fa-RzQ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="AOn-e6-OmN" secondAttribute="bottom" constant="8" id="39x-Jg-PsR"/>
+                                        <constraint firstAttribute="bottom" secondItem="pwe-cI-FjL" secondAttribute="bottom" constant="8" id="4ko-WF-ghO"/>
+                                        <constraint firstItem="AOn-e6-OmN" firstAttribute="top" secondItem="gno-r2-kzc" secondAttribute="topMargin" constant="8" id="Jv4-MZ-2Pe"/>
+                                        <constraint firstItem="pwe-cI-FjL" firstAttribute="leading" secondItem="gno-r2-kzc" secondAttribute="leading" constant="8" id="WIS-ll-Dob"/>
+                                        <constraint firstItem="AOn-e6-OmN" firstAttribute="leading" secondItem="pwe-cI-FjL" secondAttribute="trailing" constant="25" id="mb9-Tt-Pr3"/>
+                                        <constraint firstItem="pwe-cI-FjL" firstAttribute="top" secondItem="gno-r2-kzc" secondAttribute="top" constant="8" id="wjv-VI-z0f"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ingredientsLabel" destination="mU0-aC-6lF" id="IJT-pU-s0F"/>
+                                    <outlet property="nameLabel" destination="ndJ-44-Q8h" id="wOr-ZK-EdA"/>
+                                    <outlet property="thumbnailimageView" destination="pwe-cI-FjL" id="y1O-g5-hrp"/>
+                                    <outlet property="timeLabel" destination="IaT-8y-XBY" id="sM7-VY-fB1"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -32,7 +75,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oFz-Gy-7lY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-92" y="99"/>
+            <point key="canvasLocation" x="-92" y="98.50074962518741"/>
         </scene>
         <!--Single View Controller-->
         <scene sceneID="E3I-Pa-x6I">

@@ -14,6 +14,7 @@
 		A5C1A3561DC03BBF006FDEA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5C1A3551DC03BBF006FDEA8 /* Assets.xcassets */; };
 		A5C1A3591DC03BBF006FDEA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C1A3571DC03BBF006FDEA8 /* LaunchScreen.storyboard */; };
 		A5C1A3611DC043BD006FDEA8 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1A3601DC043BD006FDEA8 /* Recipe.swift */; };
+		A5FE84991DC2C0820092FBD5 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FE84981DC2C0810092FBD5 /* RecipeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A5C1A3581DC03BBF006FDEA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5C1A35A1DC03BBF006FDEA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5C1A3601DC043BD006FDEA8 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		A5FE84981DC2C0810092FBD5 /* RecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				A53458A21DC14E30000014AA /* SingleViewController.swift */,
 				A5C1A3601DC043BD006FDEA8 /* Recipe.swift */,
 				A5C1A3521DC03BBF006FDEA8 /* Main.storyboard */,
+				A5FE84981DC2C0810092FBD5 /* RecipeCell.swift */,
 				A5C1A3551DC03BBF006FDEA8 /* Assets.xcassets */,
 				A5C1A3571DC03BBF006FDEA8 /* LaunchScreen.storyboard */,
 				A5C1A35A1DC03BBF006FDEA8 /* Info.plist */,
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5FE84991DC2C0820092FBD5 /* RecipeCell.swift in Sources */,
 				A5C1A3611DC043BD006FDEA8 /* Recipe.swift in Sources */,
 				A5C1A3511DC03BBF006FDEA8 /* ViewController.swift in Sources */,
 				A53458A31DC14E30000014AA /* SingleViewController.swift in Sources */,
