@@ -58,6 +58,28 @@ class ViewController: UITableViewController {
                 "Cocer el pollo al gusto",
                 "Juntar todos los ingredientes en una ensaladera y servir con salsa César"])
         self.recipes.append(recipe)
+        
+        recipe = Recipe(
+            name: "Paella",
+            image: #imageLiteral(resourceName: "paella"),
+            time: 30,
+            ingredients: ["Arroz bomba", "Marisco variado", "Caldo de pescado", "Guisantes"],
+            steps: [
+                "Tostar el arroz en una paellera.",
+                "Tras dorarse echar el caldo de pescado, los mariscos y los guisantes.",
+                "Dejar cocer a fuego lento hasta que todo el arroz se haya bebido el caldo."])
+        self.recipes.append(recipe)
+        
+        recipe = Recipe(
+            name: "Batido de fresa",
+            image: #imageLiteral(resourceName: "batido-fresa"),
+            time: 5,
+            ingredients: ["10 fresas maduras", "Leche", "Azucar"],
+            steps: [
+                "Limpiar y cortar las fresas.",
+                "Mezclarlas con la leche y una cucharada de azucar.",
+                "Licuar hasta que conseguir el resultado esperado."])
+        self.recipes.append(recipe)
     }
 
     override func didReceiveMemoryWarning() {
