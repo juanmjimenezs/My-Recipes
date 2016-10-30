@@ -14,7 +14,8 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Este es el arreglo con las recetas para mostrar
         var recipe = Recipe(
             name: "Tortilla de patatas",
             image: #imageLiteral(resourceName: "tortilla"),
@@ -87,38 +88,46 @@ class ViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Esta función retornando el valor 'true' indica que preferimos ocultar la barra de estado
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
     //MARK: -UITableViewDataSource
+    //Estas 3 funciones a continuación, son necesarias para poder desplegar datos en la TableView
     
+    //Esta función indica el número de secciones de la tabla (normalmente es 1)
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
+    //Esta función indica el número de filas por sección.
+    //Como no tenemos paginador entonces le indicamos el número total de elementos en el arreglo.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.recipes.count
     }
     
+    //Esta función aplica para cada fila de la tabla
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let recipe = recipes[indexPath.row]
         let cellID = "recipeCell"
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! RecipeCell
-        /*cell.textLabel?.text = recipe.name
-        cell.imageView?.image = recipe.image*/
         
+        //Así es para usar los elementos por defecto con los que viene la tabla
+        //cell.textLabel?.text = recipe.name
+        //cell.imageView?.image = recipe.image
+        
+        //Así es cuando tenemos elementos personalizados en la fila...
         cell.thumbnailimageView.image = recipe.image
         cell.nameLabel.text = recipe.name
         cell.timeLabel.text = "\(recipe.time!) min"
         cell.ingredientsLabel.text = "Ingredients: \(recipe.ingredients.count)"
         
-//        cell.thumbnailimageView.layer.cornerRadius = 42.0
-//        cell.thumbnailimageView.clipsToBounds = true
+        //Así es redondear una imagen por código (ahora está hecho desde el storyboard)
+        //cell.thumbnailimageView.layer.cornerRadius = 42.0
+        //cell.thumbnailimageView.clipsToBounds = true
         
         return cell
     }
 }
-/*
-*/
