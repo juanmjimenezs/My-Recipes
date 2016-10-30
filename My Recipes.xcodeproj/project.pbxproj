@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A53458A31DC14E30000014AA /* SingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53458A21DC14E30000014AA /* SingleViewController.swift */; };
 		A5C1A34F1DC03BBF006FDEA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1A34E1DC03BBF006FDEA8 /* AppDelegate.swift */; };
 		A5C1A3511DC03BBF006FDEA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C1A3501DC03BBF006FDEA8 /* ViewController.swift */; };
 		A5C1A3541DC03BBF006FDEA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C1A3521DC03BBF006FDEA8 /* Main.storyboard */; };
@@ -18,7 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A53458A21DC14E30000014AA /* SingleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleViewController.swift; sourceTree = "<group>"; };
 		A5C1A34B1DC03BBF006FDEA8 /* My Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Recipes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C1A34E1DC03BBF006FDEA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5C1A3501DC03BBF006FDEA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +60,6 @@
 			children = (
 				A5C1A34E1DC03BBF006FDEA8 /* AppDelegate.swift */,
 				A5C1A3501DC03BBF006FDEA8 /* ViewController.swift */,
-				A53458A21DC14E30000014AA /* SingleViewController.swift */,
 				A5C1A3601DC043BD006FDEA8 /* Recipe.swift */,
 				A5C1A3521DC03BBF006FDEA8 /* Main.storyboard */,
 				A5FE84981DC2C0810092FBD5 /* RecipeCell.swift */,
@@ -100,7 +97,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Juan Manuel Jimenez Sanchez";
 				TargetAttributes = {
 					A5C1A34A1DC03BBE006FDEA8 = {
@@ -148,7 +145,6 @@
 				A5FE84991DC2C0820092FBD5 /* RecipeCell.swift in Sources */,
 				A5C1A3611DC043BD006FDEA8 /* Recipe.swift in Sources */,
 				A5C1A3511DC03BBF006FDEA8 /* ViewController.swift in Sources */,
-				A53458A31DC14E30000014AA /* SingleViewController.swift in Sources */,
 				A5C1A34F1DC03BBF006FDEA8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +189,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -243,6 +240,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
