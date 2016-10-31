@@ -124,10 +124,68 @@ class ViewController: UITableViewController {
         cell.timeLabel.text = "\(recipe.time!) min"
         cell.ingredientsLabel.text = "Ingredients: \(recipe.ingredients.count)"
         
+        //Si la receta es favorita entonces mostramos un check
+        if recipe.isFavorite {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        
         //Así es redondear una imagen por código (ahora está hecho desde el storyboard)
         //cell.thumbnailimageView.layer.cornerRadius = 42.0
         //cell.thumbnailimageView.clipsToBounds = true
         
         return cell
+    }
+    
+    //Esta función habilita las opciones que aparecen al desplazar lateralmente la fila
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        //Compartir
+        let shareAction = UITableViewRowAction(style: .default, title: "Share") { (action, indexPath) in
+            let shareDefaultText = "Estoy mirando la receta de \(self.recipes[indexPath.row].name!) en la App de Juan Manuel"
+            let activityController = UIActivityViewController(activityItems: [shareDefaultText, self.recipes[indexPath.row].image], applicationActivities: nil)
+            
+            self.present(activityController, animated: true, completion: nil)
+        }
+        shareAction.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        //Eliminar
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            self.recipes.remove(at: indexPath.row)
+            //self.tableView.reloadData()
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        deleteAction.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        
+        return [shareAction, deleteAction]
+    }
+    
+    //MARK: -UITableViewDelegate
+    
+    //Cuando selecciono una fila...
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipe = self.recipes[indexPath.row]//Obtenemos el objeto con los datos según la fila que ejecuta la acción
+        
+        let alertController = UIAlertController(title: recipe.name, message: "Rate this plate", preferredStyle: .actionSheet)
+        //Si presiono 'Cancel' solo se cierra la alerta
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        var favoriteActionText = "Favorite"
+        var favoriteActionStyle = UIAlertActionStyle.default
+        if recipe.isFavorite {
+            favoriteActionText = "No favorite"
+            favoriteActionStyle = UIAlertActionStyle.destructive
+        }
+        
+        //Si presiono 'Favorite' se ejecuta lo que tiene adentro
+        let favoriteAction = UIAlertAction(title: favoriteActionText, style: favoriteActionStyle) {(action) in
+            let recipe = self.recipes[indexPath.row]//Obtenemos el objeto con los datos según la fila que ejecuta la acción
+            recipe.isFavorite = !recipe.isFavorite//Cambiamos su valor
+            self.tableView.reloadData()
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(favoriteAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }
