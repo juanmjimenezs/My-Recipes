@@ -138,6 +138,8 @@ class ViewController: UITableViewController {
         return cell
     }
     
+    //MARK: -UITableViewDelegate
+    
     //Esta función habilita las opciones que aparecen al desplazar lateralmente la fila
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         //Compartir
@@ -159,11 +161,11 @@ class ViewController: UITableViewController {
         return [shareAction, deleteAction]
     }
     
-    //MARK: -UITableViewDelegate
-    
     //Cuando selecciono una fila...
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let recipe = self.recipes[indexPath.row]//Obtenemos el objeto con los datos según la fila que ejecuta la acción
+        
+        //Muestra un popUp para permitir marcar como favorito o desmarcar
+        /*let recipe = self.recipes[indexPath.row]//Obtenemos el objeto con los datos según la fila que ejecuta la acción
         
         let alertController = UIAlertController(title: recipe.name, message: "Rate this plate", preferredStyle: .actionSheet)
         //Si presiono 'Cancel' solo se cierra la alerta
@@ -186,6 +188,22 @@ class ViewController: UITableViewController {
         alertController.addAction(cancelAction)
         alertController.addAction(favoriteAction)
         
-        self.present(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)*/
+    }
+    
+    //Esta función se ejecuta cuando tocamos un área delimitada para un segue (un enlace a otro viewController)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Si el identificador corresponde al segue que va al detalle de la receta
+        if segue.identifier == "showRecipeDetail" {
+            //Obtenemos el indexPath de la fila seleccionada
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                //Obtenemos la receta seleccionada
+                let selectedRecipe = self.recipes[indexPath.row]
+                //Obtenemos el controlador de destino
+                let destinationViewController = segue.destination as! DetailViewController
+                //Almacenamos en destino la receta
+                destinationViewController.recipe = selectedRecipe
+            }
+        }
     }
 }

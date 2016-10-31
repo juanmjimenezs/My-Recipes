@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vv7-Wh-oge">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CAT-Yc-2Z0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--My Recipes-->
         <scene sceneID="e91-nQ-5El">
             <objects>
                 <tableViewController id="vv7-Wh-oge" customClass="ViewController" customModule="My_Recipes" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,6 +77,7 @@
                                     <outlet property="nameLabel" destination="ndJ-44-Q8h" id="wOr-ZK-EdA"/>
                                     <outlet property="thumbnailimageView" destination="pwe-cI-FjL" id="y1O-g5-hrp"/>
                                     <outlet property="timeLabel" destination="IaT-8y-XBY" id="sM7-VY-fB1"/>
+                                    <segue destination="YnC-4m-kQe" kind="show" identifier="showRecipeDetail" id="9xU-ph-Nwf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,8 +86,74 @@
                             <outlet property="delegate" destination="vv7-Wh-oge" id="PkY-om-fi0"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="My Recipes" id="E58-dq-GwK"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oFz-Gy-7lY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="847.20000000000005" y="98.50074962518741"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="ZOT-3a-qEt">
+            <objects>
+                <viewController id="YnC-4m-kQe" customClass="DetailViewController" customModule="My_Recipes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l8d-ho-6Q7"/>
+                        <viewControllerLayoutGuide type="bottom" id="7bF-Cd-hxA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TMG-fX-IHW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mV1-Nh-Soc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dyS-Q0-MTc">
+                                <rect key="frame" x="42" y="114" width="288" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="Wro-4h-EWM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="2" height="2"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7bF-Cd-hxA" firstAttribute="top" secondItem="mV1-Nh-Soc" secondAttribute="bottom" id="1Th-XI-rUl"/>
+                            <constraint firstItem="dyS-Q0-MTc" firstAttribute="leading" secondItem="TMG-fX-IHW" secondAttribute="leading" constant="42" id="5MN-fc-8hW"/>
+                            <constraint firstAttribute="trailing" secondItem="dyS-Q0-MTc" secondAttribute="trailing" constant="45" id="7O1-V1-5el"/>
+                            <constraint firstItem="dyS-Q0-MTc" firstAttribute="top" secondItem="l8d-ho-6Q7" secondAttribute="bottom" constant="50" id="Cxi-b6-VU8"/>
+                            <constraint firstAttribute="trailing" secondItem="mV1-Nh-Soc" secondAttribute="trailing" id="H8k-pJ-mQU"/>
+                            <constraint firstItem="mV1-Nh-Soc" firstAttribute="top" secondItem="l8d-ho-6Q7" secondAttribute="bottom" id="hmf-ZH-5Nz"/>
+                            <constraint firstItem="mV1-Nh-Soc" firstAttribute="leading" secondItem="TMG-fX-IHW" secondAttribute="leading" id="xHW-Bc-gjE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="recipeImageView" destination="mV1-Nh-Soc" id="nGd-ku-ivG"/>
+                        <outlet property="recipeNameLabel" destination="dyS-Q0-MTc" id="Ca0-5s-dTS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iIV-nG-L1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1732" y="98.50074962518741"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TUz-kG-alk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CAT-Yc-2Z0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NOA-zv-6X4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vv7-Wh-oge" kind="relationship" relationship="rootViewController" id="9KQ-qv-65L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k9P-kw-82e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-92" y="98.50074962518741"/>
         </scene>
