@@ -121,7 +121,7 @@ class ViewController: UITableViewController {
         //Así es cuando tenemos elementos personalizados en la fila...
         cell.thumbnailimageView.image = recipe.image
         cell.nameLabel.text = recipe.name
-        cell.timeLabel.text = "\(recipe.time!) min"
+        cell.timeLabel.text = "\(recipe.time) min"
         cell.ingredientsLabel.text = "Ingredients: \(recipe.ingredients.count)"
         
         //Si la receta es favorita entonces mostramos un check

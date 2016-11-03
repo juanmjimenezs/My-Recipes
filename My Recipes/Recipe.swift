@@ -12,7 +12,7 @@ import UIKit
 class Recipe: NSObject {
     var name: String!
     var image: UIImage!
-    var time: Int!
+    var time: Int = 0
     var ingredients: [String]!
     var steps: [String]!
     

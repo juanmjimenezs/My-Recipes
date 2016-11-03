@@ -38,3 +38,41 @@ class DetailViewController: UIViewController {
     */
 
 }
+
+extension DetailViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailRecipeCell", for: indexPath) as! RecipeDetailViewCell
+        
+        switch indexPath.row {
+        case 0:
+            cell.keyLabel.text = "Name:"
+            cell.valueLabel.text = self.recipe.name
+        case 1:
+            cell.keyLabel.text = "Tiempo:"
+            cell.valueLabel.text = "\(self.recipe.time) min"
+        case 2:
+            cell.keyLabel.text = "Favorita:"
+            if self.recipe.isFavorite {
+                cell.valueLabel.text = "Si"
+            } else {
+                cell.valueLabel.text = "No"
+            }
+        default:
+            break
+        }
+        
+        return cell
+    }
+}
+
+extension DetailViewController: UITableViewDelegate {
+    
+}
