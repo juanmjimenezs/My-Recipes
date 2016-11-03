@@ -45,7 +45,7 @@ extension DetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 5 + self.recipe.steps.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,8 +65,19 @@ extension DetailViewController: UITableViewDataSource {
             } else {
                 cell.valueLabel.text = "No"
             }
+        case 3:
+            cell.keyLabel.text = "Ingredients:"
+            var ingredients = ""
+            for ingredient in self.recipe.ingredients {
+                ingredients += "\(ingredient), "
+            }
+            cell.valueLabel.text = ingredients
+        case 4:
+            cell.keyLabel.text = "Steps:"
+            cell.valueLabel.text = ""
         default:
-            break
+            cell.keyLabel.text = "\(indexPath.row-4)"
+            cell.valueLabel.text = self.recipe.steps[indexPath.row-5]
         }
         
         return cell
