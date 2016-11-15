@@ -15,6 +15,8 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         // Este es el arreglo con las recetas para mostrar
         var recipe = Recipe(
             name: "Tortilla de patatas",
@@ -81,6 +83,11 @@ class ViewController: UITableViewController {
                 "Mezclarlas con la leche y una cucharada de azucar.",
                 "Licuar hasta que conseguir el resultado esperado."])
         self.recipes.append(recipe)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnSwipe = true
     }
 
     override func didReceiveMemoryWarning() {

@@ -10,15 +10,37 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    @IBOutlet var recipeNameLabel: UILabel!
     @IBOutlet var recipeImageView: UIImageView!
+    @IBOutlet var tableView: UITableView!
+    
     var recipe: Recipe!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = self.recipe.name
 
         self.recipeImageView.image = self.recipe.image
-        self.recipeNameLabel.text = self.recipe.name
+        //Aquí cambiamos el color de fondo de la tabla
+        self.tableView.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        //Si al final hay celdas sin usar, entonces les damos un tamaño de cero para que no se vean
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        //Aquí elegimos el color de la linea separadora de celdas
+        self.tableView.separatorColor = #colorLiteral(red: 0.9460816062, green: 0.9460816062, blue: 0.9460816062, alpha: 1)
+        
+        //Esto es para que el tamaño de la fila sea dinamico dependiendo del contenido
+        self.tableView.estimatedRowHeight = 44.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setToolbarHidden(false, animated: true)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +72,8 @@ extension DetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailRecipeCell", for: indexPath) as! RecipeDetailViewCell
+        //Le quitamos el fondo a las celdas para que se vea el fondo de la tabla como tal.
+        cell.backgroundColor = UIColor.clear
         
         switch indexPath.row {
         case 0:

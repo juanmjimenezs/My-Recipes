@@ -111,17 +111,6 @@
                                     <constraint firstAttribute="height" constant="300" id="Sxk-4C-aif"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dyS-Q0-MTc">
-                                <rect key="frame" x="42" y="114" width="288" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="Wro-4h-EWM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="31"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="2" height="2"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DwH-6M-ala">
                                 <rect key="frame" x="0.0" y="364" width="375" height="303"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -130,20 +119,20 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TNN-lF-c5z" id="0XD-Xv-XQ6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFC-30-g9G">
-                                                    <rect key="frame" x="8" y="8" width="359" height="27.5"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="43.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GU8-Ol-hzC">
-                                                            <rect key="frame" x="0.0" y="0.0" width="119.5" height="27.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="119.5" height="43.5"/>
                                                             <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="Goo-DN-Lb3">
-                                                            <rect key="frame" x="119.5" y="0.0" width="239.5" height="27.5"/>
+                                                            <rect key="frame" x="119.5" y="0.0" width="239.5" height="43.5"/>
                                                             <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -175,9 +164,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dyS-Q0-MTc" firstAttribute="leading" secondItem="TMG-fX-IHW" secondAttribute="leading" constant="42" id="5MN-fc-8hW"/>
-                            <constraint firstAttribute="trailing" secondItem="dyS-Q0-MTc" secondAttribute="trailing" constant="45" id="7O1-V1-5el"/>
-                            <constraint firstItem="dyS-Q0-MTc" firstAttribute="top" secondItem="l8d-ho-6Q7" secondAttribute="bottom" constant="50" id="Cxi-b6-VU8"/>
                             <constraint firstItem="DwH-6M-ala" firstAttribute="top" secondItem="mV1-Nh-Soc" secondAttribute="bottom" id="G2W-ND-6cD"/>
                             <constraint firstAttribute="trailing" secondItem="mV1-Nh-Soc" secondAttribute="trailing" id="H8k-pJ-mQU"/>
                             <constraint firstAttribute="trailing" secondItem="DwH-6M-ala" secondAttribute="trailing" id="MOY-Nb-WYW"/>
@@ -189,7 +175,7 @@
                     </view>
                     <connections>
                         <outlet property="recipeImageView" destination="mV1-Nh-Soc" id="nGd-ku-ivG"/>
-                        <outlet property="recipeNameLabel" destination="dyS-Q0-MTc" id="Ca0-5s-dTS"/>
+                        <outlet property="tableView" destination="DwH-6M-ala" id="m1Z-44-nF5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIV-nG-L1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
