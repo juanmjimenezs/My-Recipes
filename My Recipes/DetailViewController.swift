@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet var recipeImageView: UIImageView!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var ratingButton: UIButton!
     
     var recipe: Recipe!
 
@@ -31,6 +32,10 @@ class DetailViewController: UIViewController {
         //Esto es para que el tamaño de la fila sea dinamico dependiendo del contenido
         self.tableView.estimatedRowHeight = 44.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
+
+        //Cargamos la imagen según la valoración que tenga
+        let image = UIImage(named: self.recipe.rating)
+        self.ratingButton.setImage(image, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +54,15 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func close(segue: UIStoryboardSegue) {
-        
+        if let reviewVC = segue.source as? ReviewViewController {
+            if let rating = reviewVC.ratingSelected {
+                //Guardamos en el objeto la valoración que se acaba de dar
+                self.recipe.rating = rating
+                //Cargamos la imagen según la valoración dada
+                let image = UIImage(named: self.recipe.rating)
+                self.ratingButton.setImage(image, for: .normal)
+            }
+        }
     }
     
 
@@ -71,7 +84,7 @@ extension DetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5 + self.recipe.steps.count
+        return 4 + self.recipe.steps.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,25 +100,18 @@ extension DetailViewController: UITableViewDataSource {
             cell.keyLabel.text = "Tiempo:"
             cell.valueLabel.text = "\(self.recipe.time) min"
         case 2:
-            cell.keyLabel.text = "Favorita:"
-            if self.recipe.isFavorite {
-                cell.valueLabel.text = "Si"
-            } else {
-                cell.valueLabel.text = "No"
-            }
-        case 3:
             cell.keyLabel.text = "Ingredients:"
             var ingredients = ""
             for ingredient in self.recipe.ingredients {
                 ingredients += "\(ingredient), "
             }
             cell.valueLabel.text = ingredients
-        case 4:
+        case 3:
             cell.keyLabel.text = "Steps:"
             cell.valueLabel.text = ""
         default:
-            cell.keyLabel.text = "\(indexPath.row-4)"
-            cell.valueLabel.text = self.recipe.steps[indexPath.row-5]
+            cell.keyLabel.text = "\(indexPath.row-3)"
+            cell.valueLabel.text = self.recipe.steps[indexPath.row-4]
         }
         
         return cell

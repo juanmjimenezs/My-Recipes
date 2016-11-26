@@ -14,6 +14,12 @@ class ReviewViewController: UIViewController {
     
     @IBOutlet var ratingStackView: UIStackView!
     
+    var ratingSelected: String?
+    
+    @IBOutlet var firstButton: UIButton!
+    @IBOutlet var secondButton: UIButton!
+    @IBOutlet var thirdButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +33,10 @@ class ReviewViewController: UIViewController {
         let scale = CGAffineTransform(scaleX: 0.0, y: 0.0)
         let translation = CGAffineTransform(translationX: 0.0, y: 500.0)
         
-        ratingStackView.transform = scale.concatenating(translation)
+        //ratingStackView.transform = scale.concatenating(translation)
+        self.firstButton.transform = scale.concatenating(translation)
+        self.secondButton.transform = scale.concatenating(translation)
+        self.thirdButton.transform = scale.concatenating(translation)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,8 +46,16 @@ class ReviewViewController: UIViewController {
 //            self.ratingStackView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
 //        }, completion: nil)
         
-        UIView.animate(withDuration: 2.0, delay: 0.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.5, options: [], animations: {
-            self.ratingStackView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.5, options: [], animations: {
+            self.firstButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }, completion: nil)
+
+        UIView.animate(withDuration: 1.0, delay: 0.5, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.5, options: [], animations: {
+            self.secondButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }, completion: nil)
+
+        UIView.animate(withDuration: 1.0, delay: 1.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.5, options: [], animations: {
+            self.thirdButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }, completion: nil)
     }
 
@@ -49,6 +66,21 @@ class ReviewViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    @IBAction func ratingPressed(_ sender: UIButton) {
+        switch sender.tag {
+        case 1:
+            ratingSelected = "dislike"
+        case 2:
+            ratingSelected = "good"
+        case 3:
+            ratingSelected = "great"
+        default:
+            break
+        }
+        
+        performSegue(withIdentifier: "unwindToDetailView", sender: sender)
     }
 
     /*

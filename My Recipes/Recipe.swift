@@ -16,7 +16,7 @@ class Recipe: NSObject {
     var ingredients: [String]!
     var steps: [String]!
     
-    var isFavorite: Bool = false
+    var rating: String = "rating"
     
     init(name: String, image: UIImage, time: Int, ingredients: [String], steps: [String]) {
         self.name = name

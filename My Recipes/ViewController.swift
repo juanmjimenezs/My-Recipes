@@ -131,13 +131,6 @@ class ViewController: UITableViewController {
         cell.timeLabel.text = "\(recipe.time) min"
         cell.ingredientsLabel.text = "Ingredients: \(recipe.ingredients.count)"
         
-        //Si la receta es favorita entonces mostramos un check
-        if recipe.isFavorite {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
-        
         //Así es redondear una imagen por código (ahora está hecho desde el storyboard)
         //cell.thumbnailimageView.layer.cornerRadius = 42.0
         //cell.thumbnailimageView.clipsToBounds = true
